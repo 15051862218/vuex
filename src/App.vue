@@ -1,19 +1,56 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- <vuex-cpn-one></vuex-cpn-one>
+    <br>
+    <vuex-cpn-two></vuex-cpn-two> -->
+   <vuex-cpn-three></vuex-cpn-three>
+   <hr/>
+   <vuex-cpn-four></vuex-cpn-four>
+ 
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+// import VuexCpnOne from '@/components/VuexCpnOne.vue'
+// import VuexCpnTwo from '@/components/VuexCpnTwo.vue'
+import VuexCpnThree from '@/components/VuexCpnThree.vue'
+import VuexCpnFour from '@/components/VuexCpnFour.vue'
+
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+  //  VuexCpnOne,
+  //  VuexCpnTwo
+  VuexCpnThree,
+  VuexCpnFour,
+
+  },
+  onload(){
+    this.addToList;
+  },
+   data () {
+    return {
+      msg: 'Hello vue-baberrage',
+      barrageIsShow: true,
+      currentId : 0,
+      barrageLoop: false,
+      barrageList: []
+    }
+  },  
+  methods:{
+    addToList (){
+      this.barrageList.push({
+        id: ++this.currentId,
+        avatar: "./static/avatar.jpg",
+        msg: this.msg,
+        time: 5,
+        type: MESSAGE_TYPE.NORMAL
+      });
+    }
   }
-}
+};
 </script>
 
 <style>
